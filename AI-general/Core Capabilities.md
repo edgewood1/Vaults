@@ -1,0 +1,15 @@
+1. **Custom Analytics & Prediction Models:** These are AI systems built specifically to analyze a company's unique data and generate insights or forecasts tailored to their context. This goes beyond using standard analytics tools.   
+    
+    - _Examples:_ A custom model predicting customer churn based on unique engagement metrics, a bespoke demand forecasting model for a specific product line considering local factors, a financial institution's unique credit risk assessment model, or a personalized recommendation engine trained deeply on niche user behavior.
+2. **Specialized Perception Systems:** This involves developing AI to interpret specific types of sensory data (visual, auditory, textual) critical to the business, often where standard models fall short.
+    
+    - _Examples:_ A custom computer vision system trained to detect specific types of defects in a unique manufacturing process, an NLP model designed to understand highly specialized jargon in legal or medical documents, a system to analyze satellite imagery for specific agricultural insights, or voice recognition trained for unusual acoustic environments.
+3. **Tailored Generative Models:** This refers to building or significantly fine-tuning generative AI models (like LLMs or image generators) on a company's proprietary data or for highly specific outputs aligned with brand voice, technical requirements, or internal knowledge.   
+    
+    - _Examples:_ An internal chatbot fine-tuned on company documentation and codebase to assist developers, a generative model creating marketing copy strictly adhering to a unique brand identity, an AI tool generating realistic synthetic data for training other models where real data is scarce, or a custom text-to-image model generating visuals of specific proprietary products.   
+        
+4. **Custom Optimization Engines:** These are AI systems designed to find the optimal solution for complex, specific business problems, such as resource allocation, scheduling, or dynamic adjustments, often using techniques like reinforcement learning or specialized algorithms.
+    
+    - _Examples:_ A custom route optimization engine for a logistics company with unique fleet constraints and delivery requirements, an AI system for dynamic pricing tailored to a specific niche market and competitor behavior, an engine optimizing energy consumption in a specific industrial plant, or a system allocating marketing budgets across channels based on custom performance models.
+
+It's worth noting that these categories aren't always mutually exclusive. A complex custom AI agent might incorporate a custom prediction model and a specialized perception system to function within an automated workflow. However, thinking about these different focuses helps illustrate the diverse ways custom AI solutions are built and applied.

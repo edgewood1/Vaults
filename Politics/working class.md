@@ -1,0 +1,2 @@
+Voted for [[Trump]]
+

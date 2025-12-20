@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "c1939cd4f518c801",
+    "type": "split",
+    "children": [
+      {
+        "id": "8da1e0492118ee98",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5576d8b12d599bac",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "97b74bd996afa33e",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "eae8fa58e970d62f",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": true
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "ef32c91b47703490",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "e20a68c210522406",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "186df837149defb9",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "896c01baee2b588b",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "a9e9202cff0d9461",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Machine Learning.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "60b10df3091c15b5",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "AI tools.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "a72a4a2d92de5405",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "AI tools.md",
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "5576d8b12d599bac",
+  "lastOpenFiles": [
+    "Machine Learning.md",
+    "Model.md",
+    "Learning Paradigms.md",
+    "Learning Algorithms.md",
+    "Algo-paradigms.md",
+    "Supervised learning.md",
+    "Unsupervised learning.md",
+    "Learning Techniques.md",
+    "Semi-Supervised Learning.md",
+    "AI.md",
+    "Deep Learning.md",
+    "Untitled.canvas",
+    "Core Capabilities.md",
+    "Custom AI Solution.md",
+    "Orchestration-Action.md",
+    "Orchestration/Action.md",
+    "Orchestration",
+    "AI tools.md",
+    "Generative.md",
+    "Large language models.md"
+  ]
+}

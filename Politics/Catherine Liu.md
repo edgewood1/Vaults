@@ -1,0 +1,1 @@
+Says that [[DNC]]’s abandonment of the [[working class]] has led to their predicament.

@@ -1,0 +1,4 @@
+American Compass is a self-proclaimed conservative think tank which considers itself a part of the “conservative labor movement.” It's mission is to restore an economic consensus that emphasizes the importance of family, community, and industry to the nation’s liberty and prosperity. American Compass was founded by Oren Cass, a former advisor to now-U.S. Senator Mitt Romney’s (R-UT) presidential campaigns and a labor and environmental policy analyst. In the American Compass’s founding letter, Cass describes the organization’s ideology as a modern update on the “American system” of nineteenth-century American statesman Henry Clay predicated on national industrial policies, protectionism, pro-union labor policies, and domestic economic regulations intended to encourage the growth of domestic industry and increase wages in an equitable manner
+
+[[working class]]
+

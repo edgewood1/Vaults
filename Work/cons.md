@@ -1,0 +1,5 @@
+* no promotion
+* Lead-and the rest division within the company (way of allowing folks from the startup to distinguish themselves and wall off the new folks)
+* Little opportunity for knowledge improvment outside the dev day
+* Potential for boredom with tasks
+Ok.  I can send you the Gemini analysis of my pay later today, but its conclusion is that I am at the lower end of the right pay level for my experience and title, but if you look at the average of all engineers, including juniors, I am in the average, and above average if you consider compensation.   It suggests I stay if i value work-life balance, but if I’m willing to risk the exploration, I would definitely experience higher pay and higher level-rank (which is good for subsequent jobs).  I think it would also be nicer to have a job where there’s more camaraderie, intellectual-stimulation, and better knowledge sharing across the team (this is a huge flaw of my current position).  It could be that waiting a year wouldn’t be bad, but my thought is I shouldn’t wait a year just to see if i get a promotion.  I should probably start looking during late summer so that I have options next spring.

@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "26bc23f2540ba9d3",
+    "type": "split",
+    "children": [
+      {
+        "id": "464bc08af100bba9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "69fbd63244ea7e9f",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "24a826df0c4b0802",
+    "type": "split",
+    "children": [
+      {
+        "id": "40fb7f798ad63763",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bf04b10cb9276678",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "651a37c1e7696ce7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "99105fa61e83b7bb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4496301f49bb19bb",
+    "type": "split",
+    "children": [
+      {
+        "id": "823b6a04d225c7e0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8273f00938a30d8d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "ORM.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for ORM"
+            }
+          },
+          {
+            "id": "1459e20498291d97",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "ORM.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from ORM"
+            }
+          },
+          {
+            "id": "18e6d958bab431b5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e46f8dd14b4e5fcd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "ORM.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ORM"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-importer:Open Importer": false
+    }
+  },
+  "active": "69fbd63244ea7e9f",
+  "lastOpenFiles": [
+    "2. Data Layer/Cache Server.md",
+    "1. App Layer/Router.md",
+    "1. App Layer/API handler.md",
+    "1. App Layer/Middleware.md",
+    "2. Data Layer/DB.md",
+    "1. App Layer/Request Handler.md",
+    "1. App Layer/APIs.md",
+    "2. Data Layer/ORM.md",
+    "2. Data Layer/Caching.md",
+    "1. App Layer/Page handler.md",
+    "1. App Layer/3. Infrastcuture/Network.md",
+    "1. App Layer/Client.md",
+    "1. App Layer/static assets.md",
+    "1. App Layer/3. Infrastcuture",
+    "1. App Layer",
+    "WebApp.gsp",
+    "2. Data Layer",
+    "Untitled.base",
+    "Support-request-data/Performance/Caching/Caching-general.md",
+    "Support-request-data/Performance/Caching/Caching-React.md",
+    "Support-request-data/DB/Databases.md",
+    "Support-request-data/Operations/Deployment.md",
+    "Support-request-data/Request-pipeline/redirect.md",
+    "Support-request-data/Request-pipeline/Middleware.md",
+    "Support-request-data/Request-pipeline/Auth.md",
+    "Support-request-data/Performance/SEO Optimization.md",
+    "Support-request-data/Performance/Performance.md",
+    "Support-request-data/Performance/Memory (beyond React).md",
+    "Support-request-data/Performance/Image Optimization.md",
+    "Support-request-data/Performance/Caching",
+    "Support-request-data/DB/ORM.md",
+    "Support-request-data/Operations/i18n.md",
+    "Support-request-data/Request-pipeline",
+    "Support-request-data/Performance",
+    "Support-request-data/DB",
+    "Support-request-data/Operations",
+    "Pasted image 20251128091445.png"
+  ]
+}

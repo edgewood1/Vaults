@@ -1,0 +1,1 @@
+Owns the biggest [[social media]] platforms.
