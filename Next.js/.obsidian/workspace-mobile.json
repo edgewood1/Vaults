@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. App Layer (core logic)/Request Pipeline/Auth.md",
+                "file": "1. App Layer (core logic)/static assets.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Auth"
+              "title": "static assets"
             }
           }
         ]
@@ -167,6 +167,8 @@
   },
   "active": "fe6f710c53cd69f7",
   "lastOpenFiles": [
+    "1. App Layer (core logic)/Request Pipeline/Auth.md",
+    "Untitled",
     "1. App Layer (core logic)/Configuration/config.md",
     "1. App Layer (core logic)/Page handler.md",
     "1. App Layer (core logic)/Networking & clients/APIs.md",
@@ -196,14 +198,12 @@
     "Support-request-data/Request-pipeline/Middleware.md",
     "Support-request-data/config.md",
     "Support/middleware.md",
-    "Core-route-render/Routing systems/Pages Router/API routes (pages).md",
     "Core-route-render/Routing systems/Pages Router",
     "Core-route-render/Routing systems/App Router",
     "Other",
     "Support-request-data/Operations",
     "Support-request-data/DB",
     "Support-request-data/Performance/Caching",
-    "Support-request-data/Performance",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
