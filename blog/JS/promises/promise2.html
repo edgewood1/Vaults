@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+ <body>
+   <div id="hi">abc</div>
+    
+
+   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+
+
+    var x =$("#hi").text()
+    console.log(x)
+
+  $.ajax({
+    dataType: "json",
+    url: 'https://jsonplaceholder.typicode.com/todos/1', 
+    
+  }).then(function(data) {
+    console.log(data)
+  })
+
+
+// creating the promise with new Promise
+
+// do the work - in the function of above, using if/then
+// or in another function. 
+
+// collecting the promise with .then
+
+// ** some people write a function and then beign with return Promise... 
+// ** done for a get call, so all get calls go to this function - avoids duplication.. 
+
+  var promise1 = new Promise(
+    function(resolve, reject) {
+        setTimeout(() => {
+          var callback=resolve;
+          add(callback)
+          }, 2000);
+      // if (!(($("#hi").is(":empty")))) {
+      //   resolve("finish)")
+      // }
+ 
+ 
+ 
+});
+
+function add(callback) {
+  $("#hi").append("<img src='image.jpg'>");
+  var x="done";
+  callback(x)
+  // because this would be undefined
+  // resolve(x)
+}
+  
+promise1.then((msg) => {
+  console.log(msg)
+})
+
+
+   
+//https://codeburst.io/a-simple-guide-to-es6-promises-d71bacd2e13a
+  //  $("#hi").load(img)
+
+
+// 1. call promise1
+// 2. promise 1 is a constructed Promise
+// 3. it sets a time out of 1 sec, and when finished, it passes an argument back to promise1
+// 4. this is passed to the argument of the .then, which is console.logged
+
+  </script>
+</body>
+  </html>

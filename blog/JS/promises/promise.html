@@ -1,0 +1,30 @@
+<!-- async madness -->
+
+<!-- // promise.html -->
+
+<script>
+
+    var log = {};
+    
+      fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => 
+      // assign the api response to a global variable log
+      { log = json })
+    
+      // now try to use the global variable outside the promise
+      // but it won't work because 
+      // it still hasn't been assigned - 
+      // the response from the api call hasn't yet arrived
+      // so the global variable is still empty 
+      
+      console.log(log)  // empty
+    
+      // however, less than 1 second later, the api call arrives,
+      // the assignment is made, and it can be used.  
+    
+      setTimeout(function(){
+        console.log(log)
+      }, 1000)
+    
+    </script>
