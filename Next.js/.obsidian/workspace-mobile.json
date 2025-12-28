@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. App Layer (core logic)/Configuration/config.md",
+                "file": "1. App Layer (core logic)/Request Pipeline/Auth.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "config"
+              "title": "Auth"
             }
           }
         ]
@@ -167,6 +167,7 @@
   },
   "active": "fe6f710c53cd69f7",
   "lastOpenFiles": [
+    "1. App Layer (core logic)/Configuration/config.md",
     "1. App Layer (core logic)/Page handler.md",
     "1. App Layer (core logic)/Networking & clients/APIs.md",
     "1. App Layer (core logic)/Configuration/i18n.md",
@@ -196,7 +197,6 @@
     "Support-request-data/config.md",
     "Support/middleware.md",
     "Core-route-render/Routing systems/Pages Router/API routes (pages).md",
-    "Core-route-render/Routing systems/App Router/3.RenderingPatterns.md",
     "Core-route-render/Routing systems/Pages Router",
     "Core-route-render/Routing systems/App Router",
     "Other",
