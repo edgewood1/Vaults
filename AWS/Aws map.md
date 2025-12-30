@@ -15,39 +15,47 @@ It also hosts a NAT gateway that points to Plaid API and Firebase firestore.
 
 
 
-
 ```mermaid
 graph TD
-    subgraph 1. User Interaction
-        A[User] --> B[Amplify Hosting]
-    end
+    %% Use styling to keep it compact %%
+    classDef plain fill:#fff,stroke:#333,stroke-width:1px;
+    classDef aws fill:#FF9900,stroke:#232F3E,color:white;
 
-    subgraph 2. Backend Entry Point
+    subgraph UserFlow [‘1. Entry’]
+        A[User] --> B[Amplify Hosting]
         B --> C[API Gateway]
     end
 
-    subgraph 3. Lambda & Core Logic
-        C --> D[Lambda Functions]
-        D --> E[Secrets Manager]
-        D --> F[RDS Database]
-        D --> G[Plaid API]
-        D --> H[Firebase Firestore]
-        E --> D
-        F --> D
-        G --> D
-        H --> D
+    subgraph VPC [‘2. VPC & Networking’]
+        direction TB
+        L[NAT Gateway]
+        
+        subgraph Subnets [Private Subnets]
+            D[Lambda Functions]:::aws
+            F[“RDS<br/>(Aurora<br/>serverless)”]:::aws
+            
+            %% Connections inside the subnet
+            C --> D
+            D --> F
+            D --> E[Secrets Manager]
+        end
+
+        %% Connections exiting the subnet via NAT
+        D --> L
     end
 
-    subgraph 4. Automation
-        I[EventBridge Scheduler] --> D
-    end
-
-    subgraph 5. Networking
-        J[VPC] --> K[Private Subnets]
-        K --> L[NAT Gateway]
-        K --> F
+    subgraph External [‘3. External Services’]
+        G[Plaid API]
+        H[Firebase Firestore]
+        
+        %% NAT connections to external
         L --> G
         L --> H
     end
+    
+    I[EventBridge Scheduler] --> D
 
+    %% Styling
+    class D,F,C,L aws
 ```
+

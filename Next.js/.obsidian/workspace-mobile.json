@@ -11,9 +11,22 @@
             "id": "fe6f710c53cd69f7",
             "type": "leaf",
             "state": {
+              "type": "bases",
+              "state": {
+                "file": "Untitled.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "ac81b1cfe8f651b8",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "1. App Layer (core logic)/static assets.md",
+                "file": "Server components.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,10 +41,11 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "static assets"
+              "title": "Server components"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -165,8 +179,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fe6f710c53cd69f7",
+  "active": "ac81b1cfe8f651b8",
   "lastOpenFiles": [
+    "Untitled.base",
+    "Server components.md",
+    "1. App Layer (core logic)/static assets.md",
     "1. App Layer (core logic)/Request Pipeline/Auth.md",
     "Untitled",
     "1. App Layer (core logic)/Configuration/config.md",
@@ -177,7 +194,6 @@
     "1. App Layer/3. Infrastcuture/Network.md",
     "1. App Layer/Client.md",
     "Core-route-render/Yarn Dev Start.md",
-    "Untitled.base",
     "Core-route-render/Full-stack flow.md",
     "Tooling/NX workspace.md",
     "Tooling/Other notes.md",
@@ -195,9 +211,6 @@
     "Core-route-render/Routing systems/Pages Router/Page Routes.md",
     "Core-route-render/Routing systems/App Router/Api routes.md",
     "Tooling/Yarn build-start.md",
-    "Support-request-data/Request-pipeline/Middleware.md",
-    "Support-request-data/config.md",
-    "Support/middleware.md",
     "Core-route-render/Routing systems/Pages Router",
     "Core-route-render/Routing systems/App Router",
     "Other",
