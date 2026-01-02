@@ -1,0 +1,16 @@
+
+Maps the request's URL and method to the appropriate request handler.
+
+**Routing:** If the request wasn't handled by middleware (e.g., it's _not_ for a static asset), the server's router determines which _request handler_ function should process the request based on the URL and method. The router distinguishes between:
+    
+    - **Page Requests:** Requests for HTML pages (usually GET requests to URLs that represent pages).
+    - **API Requests:** Requests for data (often GET, POST, PUT, DELETE requests to URLs starting with `/api/...`).
+
+**Express:** Explanation of `express.Router()`, `router.get()`, `router.post()`, etc.
+**Next.js (Pages Router):** Explanation of file-system based routing in `pages` and `pages/api`.
+**Next.js (App Router):** Explanation of file-system based routing in `app`, `page.js`, and `route.js`.
+
+    - Links: `[[Express Router]]`, `[[Next.js Pages Router]]`, `[[Next.js App Router]]`
+
+Direction: [[Request Handler]]
+
