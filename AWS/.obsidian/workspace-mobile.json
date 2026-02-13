@@ -34,9 +34,92 @@
               "icon": "lucide-file",
               "title": "Terms"
             }
+          },
+          {
+            "id": "33ed8121d2b2a986",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aws concepts.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Aws concepts"
+            }
+          },
+          {
+            "id": "33d312bbae054354",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Handover file.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Handover file"
+            }
+          },
+          {
+            "id": "16ce88d92907d664",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "5.Project Journal & Specifics.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "5.Project Journal & Specifics"
+            }
+          },
+          {
+            "id": "710be5f15476bd45",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4.Deployment & Hosting Manual (Woodrose EC2 Migration).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "4.Deployment & Hosting Manual (Woodrose EC2 Migration)"
+            }
+          },
+          {
+            "id": "25c7df09027a26b7",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Untitled.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "8bb2644386547e77",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00.Study_guide/00.Readme_study.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "00.Readme_study"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -64,7 +147,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "",
+            "query": "Route 53",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -113,7 +196,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Terms.md",
+            "file": "01.Knowledge_base/1.core_infrastructure.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -169,12 +252,32 @@
       "bases:Create new base": false
     }
   },
-  "active": "aaf58c1be6e31c9d",
+  "active": "25c7df09027a26b7",
   "lastOpenFiles": [
-    "Aws map.md",
-    "Terms.md",
+    "01.Knowledge_base/1.core_infrastructure.md",
+    "Untitled.base",
+    "00.Study_guide/00.Readme_study.md",
+    "3.Dev_Prod Table.md",
+    "00.Study_guide/01.Quiz1.md",
+    "00.Study_guide",
+    "00.Readme_study.md",
+    "02.Projects/3.Project-journal.md",
+    "02.Projects/2.Handover_protocol.md",
+    "02.Projects/1.Architecture_map.md",
+    "01.Knowledge_base/3.env_mapping.md",
+    "02.Projects/Handover file.md",
+    "02.Projects/Aws map.md",
+    "02.Projects/2.AWS App Architecture (Compute, Data, & Web).md",
+    "01.Knowledge_base/2.Hosting_nextjs.md",
+    "01.Knowledge_base/2.hosting_and_deployment.md",
+    "01.Knowledge_base/1.core_infrastructure_concepts.md",
+    "01.Knowledge_base/1.core_infrastructure_terms.md",
+    "02.Projects/4.Ops Manual (Woodrose EC2 Migration).md",
+    "02.Projects/5.Project Journal & Specifics.md",
+    "02.Projects/3.Practical Scenario - Building the \"Budget App\".md",
+    "02.Projects",
+    "01.Knowledge_base",
     "Untitled.canvas",
-    "Untitled 1.base",
-    "Untitled.base"
+    "Untitled 1.base"
   ]
 }
