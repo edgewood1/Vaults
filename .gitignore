@@ -3,3 +3,6 @@
 .DS_Store
 .obsidian/plugins/*/data.json
 .Trash-*
+
+# Sensitive credentials and authentication information
+Auth/

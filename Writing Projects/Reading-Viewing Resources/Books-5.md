@@ -1,0 +1,3 @@
+# Books
+
+There are only two advice books I’ve read more than once. One is Tom Hodgkinson’s “<u>[How to Be Idle](https://www.nytimes.com/2005/06/26/books/review/how-to-be-idle-being-and-donothingness.html)</u>” (2004). Its title is self-explanatory. The other is J.P. Donleavy’s “The Unexpurgated Code” (1975). Its title is less so. Donleavy’s book is a sendup of the form that happens to be, possibly, the funniest book ever written

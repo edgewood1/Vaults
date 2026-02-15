@@ -1,0 +1,4 @@
+# Haunted
+
+
+The say all creative activity to be motivated by scripture but they are basing their analysis based on book of Enoch, no scriptural. And disseminating it vi the cloud which from their analysis is demonic inspired.  So in this podcast they seem to have stepped far over their contrived limit.  Furthermore, they give a highly misleading description of AI.   They might be better served by interviewing a AI deberlo per preferably one not steeped in the everything not in the Bible is demonic ideology, which is what that perspective is.  Folks like this set forth lame stereotypes of Christian’s and are poor role models for what Christian life could be.  I guess in that sense they are doing the bidding of the demons they commune with.  

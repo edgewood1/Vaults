@@ -1,0 +1,3 @@
+# I wouldn’t confuse fiction with myth. Fiction is a contrived work…
+
+I wouldn’t confuse fiction with myth. Fiction is a contrived work of prose. Myth is not contrived, but rather is reflective of real tendencies in the human psyche and human history. It is a work of allegory / symbolism - not documented history. There may have not been a man named Noah, but he is representative of groups of people surviving the great flood (a story also depicted in (not plagiarized from) the Sumerian epic. This story also represents a stage of spirit development. That said, not all aspects of the Bible are mere allegory.

@@ -1,0 +1,14 @@
+# Mary 2B:
+
+
+Here is a cleaned-up and coherent presentation of your ideas on magic and will, drawing from Crowley, Aquinas, and Tomberg.
+The Nature of Will: Crowley vs. Aquinas
+Both Aleister Crowley and Thomas Aquinas posit two distinct forms of will, but they define them in fundamentally different ways.
+ * Crowley divides the will into a False Will and a True Will. The False Will is a person’s conditioned ego, driven by fleeting desires and external influences. The True Will is a person's unique, unconditioned destiny—a core purpose that the magician must discover and align with. The goal of magic is to achieve perfect, unconditioned liberation by fulfilling one's personal destiny.
+ * Aquinas distinguishes between the Human Will and the Divine Will. The Human Will is the universal capacity to choose the good, a faculty shared by all people. It is inherently good but flawed by Original Sin, making our intellect prone to error and our choices imperfect. The Divine Will is the perfect, universal plan of God for all of creation. For Aquinas, magic is not about discovering a “true will,” but about using the human will to discern and align with a specific, individual purpose within God's larger plan. The goal is a journey of sanctification—a partnership with God's grace to heal our flawed nature and bring our will into harmony with His.
+The Forms of Magic: Tomberg's Framework
+Valentin Tomberg’s body of knowledge provides a framework for understanding magic based on the source and orientation of the will. He distinguishes between three types of magic:
+ * The Magic of Grace: This is the highest and most sacred form of magic, which Tomberg links to prayer and redemptive acts. It's not a means of imposing one's will on reality but a surrender to the Divine Will through grace, love, and faith. This magic emanates from a purified heart and is seen in miracles and selfless acts of healing.
+ * The Magic of Knowledge or Form: This is a neutral category that works with the natural and psychic laws of the cosmos. It includes ceremonial magic, which seeks to contact invisible powers, and psychological magic, which uses techniques like visualization and will-power. This type of magic is conditionally legitimate; it is a tool that remains holy only when subordinated to a divine will.
+ * The Magic of Ego: This is the perversion of all magic, driven by pride, domination, and personal desire. This form of magic—which Tomberg calls "black magic"—is centered on the formula, “I will; therefore it is done.” It uses spiritual or psychic forces for self-assertion, leading to spiritual bondage and moral decay.
+Tomberg's framework ultimately presents a clear axis of discernment for all magical practice: it ascends to miracle when the will bows in love and descends to sorcery when the will asserts itself in pride.

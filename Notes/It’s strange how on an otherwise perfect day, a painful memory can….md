@@ -1,0 +1,3 @@
+# It’s strange how on an otherwise perfect day, a painful memory can…
+
+# It’s strange how on an otherwise perfect day, a painful memory can creep up, leaving behind waves of ill-tasting associations that are not easy to break, that seem to plead we shed on them a new light, maybe even redeem them a little,  or at least stay with them until they’ve lost their sting. 

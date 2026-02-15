@@ -1,0 +1,3 @@
+# see it in the mind, feel it in the heart, and commit to it (even if…
+
+see it in the mind, feel it in the heart, and commit to it (even if you know its wrong lol), and it will come true.﻿

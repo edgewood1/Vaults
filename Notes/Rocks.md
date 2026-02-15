@@ -1,0 +1,4 @@
+# Rocks
+
+
+Sedimentary rocks form at the surface from accumulated layers of sand and mud, but their journey often takes them deep underground where they are buried under miles of sediment or crushed in tectonic collisions. As these rocks are shoved into the hot crust, they encounter immense lithostatic pressure and heat, leading to two distinct fates. If the rock sinks deep enough to cross its melting point, it liquefies into magma, which eventually rises and cools into **igneous rock**.  However, many rocks occupy a "middle ground" where they are transformed by heat and pressure but do not melt; instead, they undergo **recrystallization** to become **metamorphic rock**. In this solid-state transformation, the rock mass becomes denser and more compact, yet its internal structure is reorganized at the atomic level, turning loose fragments into a hard, interlocking crystalline mass.

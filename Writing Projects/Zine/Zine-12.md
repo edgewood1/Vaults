@@ -1,0 +1,4 @@
+# Zine
+
+
+s eminently qualified to investigate how we define life. In an earlier book, <u>[The Vital Question](https://bookshop.org/a/12476/9780393352979)</u>, he put forward a provocative hypothesis on how cells formed from the jostle of atoms. For almost 2 billion years, he proposed, bacteria and archaea, two of the three kinds of organisms that exist on our planet, churned through ancient oceans until a single archaeon swallowed a bacterium and emerged as the mother of all multicellular descendants—including us. With Transformer, he continues his indefatigable exploration of the genesis of biology. Lane focuses on millions of years of evolution and the planet’s twists and turns—the Great Oxidation Event, the Cambrian explosion—while profiling visionary scientists. He beautifully lays out the sheer improbability of our biosphere, explains why life may be exceedingly rare in our universe, and considers death as a process, not simply as an instantaneous end

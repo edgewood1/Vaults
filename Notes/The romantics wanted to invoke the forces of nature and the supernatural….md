@@ -1,0 +1,3 @@
+# The romantics wanted to invoke the forces of nature and the supernatural…
+
+The romantics wanted to invoke the forces of nature and the supernatural against those of pure reason and industry.   They saw much darkness in what most saw the light of progress so, in contrast, they sought the light in darkness. Hence the need to find comfort amid uncertainty and disorder - a lofty but achievable ability: negative capability. 

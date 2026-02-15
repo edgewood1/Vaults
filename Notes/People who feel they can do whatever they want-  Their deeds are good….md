@@ -1,0 +1,4 @@
+# People who feel they can do whatever they want.  Their deeds are good…
+
+People who feel they can do whatever they want.  Their deeds are good despite proof of the contrary ) they can offer proof for). And those who critique them impose unjust rules and regulations meant to bloat govt impede progress and is politically motivated.   They’re good because they love god yet where is New Testament precedent for their deeds.  They might point to the Kings but these should be reas in light of the New Testament.  Ayn rand.  If everyone suited themselves we’d live in a great place.  Yet a middle class family might have a child who goes thru life unscathed while a poor man might have a child who suffers due to laws established which benefits middle class.  
+[First on CNN: Rep. Ronny Jackson made sexual comments, drank alcohol and took Ambien while working as White House physician, Pentagon watchdog finds](http://rss.cnn.com/~r/rss/cnn_allpolitics/~3/tPGUkQF8SaQ/index.html)
