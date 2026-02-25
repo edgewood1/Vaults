@@ -1,3 +1,0 @@
-# Sand and epoxy bonds
-
-
