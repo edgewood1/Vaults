@@ -35,7 +35,7 @@
 
 
 ## Key of A or D - Needs Verification
- * Fortune (also listed in D and Unconfirmed)
+ * Fortune - D
  * Rye Straw (also listed in D)
  * Sally Ann (also listed in D)
  * Sugar in the Gourd (also listed in D)
