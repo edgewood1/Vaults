@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Music/Oldtime/Fiddle-Mark.md",
+                "file": "Music/Oldtime/Fiddle-Mike.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fiddle-Mark"
+              "title": "Fiddle-Mike"
             }
           }
         ]
@@ -112,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Music/Oldtime/Fiddle-Mark.md",
+            "file": "Music/Oldtime/Fiddle-Mike.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -169,5 +169,7 @@
     }
   },
   "active": "ce232ebe20f0b930",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Music/Oldtime/Fiddle-Mark.md"
+  ]
 }
