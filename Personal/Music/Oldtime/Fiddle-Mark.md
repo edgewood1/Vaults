@@ -43,13 +43,13 @@
 
 ## Key of G - Check against A
  * Dance All Night With a Bottle in my Hand
- * Nelly Gray
+ * Nelly Gray - key of D
  * Sweet Maria
 
 
 ## Unknown Key / Needs Verification
  * 8th of Jan
- * Bill Chatham
+ * Bill Chatham - A
  * Breaking Up Xmas
  * Buffalo Girls
  * Fishers Hornpipe
