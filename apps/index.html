@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retirement Planner – Kathy &amp; Mel</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: sans-serif; font-size: 14px; color: #1a1a1a; padding: 1rem; background: #f5f5f2; }
+  h2 { font-size: 18px; font-weight: 500; margin-bottom: 1rem; }
+  h3 { font-size: 15px; font-weight: 500; margin: 1.25rem 0 0.5rem; }
+  .section { background: #ebebea; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+  .row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .row label { font-size: 12px; color: #666; width: 240px; flex-shrink: 0; }
+  .row input[type=range] { flex: 1; min-width: 0; }
+  .row .val { font-size: 13px; font-weight: 500; min-width: 100px; text-align: right; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .highlight { background: #e6f1fb; border: 1.5px solid #85b7eb; border-radius: 12px; padding: 1rem; }
+  .highlight h3 { color: #185fa5; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 1rem 0; }
+  .card { background: #ebebea; border-radius: 8px; padding: 10px 12px; }
+  .card .lbl { font-size: 11px; color: #666; margin-bottom: 4px; }
+  .card .num { font-size: 18px; font-weight: 500; }
+  .card .num.warn { color: #c0392b; }
+  .chart-wrap { position: relative; width: 100%; height: 340px; margin-top: 1rem; }
+  .note { font-size: 11px; color: #666; margin-top: 8px; line-height: 1.8; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0; font-size: 12px; color: #666; }
+  .legend span { display: flex; align-items: center; gap: 4px; }
+  .legend .sq { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .ins-status { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 0.75rem; }
+  .ins-box { border-radius: 8px; padding: 8px 12px; font-size: 12px; border: 0.5px solid #ccc; }
+  .ins-box .name { font-weight: 500; margin-bottom: 2px; }
+  .ins-box .detail { color: #555; line-height: 1.5; }
+  .ins-box.good { background: #eaf3de; border-color: #639922; }
+  .ins-box.warn-box { background: #faeeda; border-color: #ba7517; }
+  .ins-box.safe { background: #e6f1fb; border-color: #378add; }
+</style>
+</head>
+<body>
+
+<h2>Retirement planner — Kathy &amp; Mel</h2>
+
+<!-- RETIREMENT AGE SLIDERS -->
+
+<div class="two-col">
+  <div class="highlight">
+    <h3>Kathy's retirement age</h3>
+    <div class="row" style="margin-top:0.75rem">
+      <label style="font-size:13px;color:#555;width:auto;flex-shrink:0">Retire at age</label>
+      <input type="range" id="kathy-ret-age" min="55" max="70" step="1" value="58">
+      <span class="val" id="kathy-ret-age-v" style="font-size:20px"></span>
+    </div>
+    <div style="font-size:12px;color:#555" id="kathy-ret-yr-note"></div>
+  </div>
+  <div class="highlight">
+    <h3>Mel's retirement age</h3>
+    <div class="row" style="margin-top:0.75rem">
+      <label style="font-size:13px;color:#555;width:auto;flex-shrink:0">Retire at age</label>
+      <input type="range" id="mel-ret-age" min="55" max="70" step="1" value="62">
+      <span class="val" id="mel-ret-age-v" style="font-size:20px"></span>
+    </div>
+    <div style="font-size:12px;color:#555" id="mel-ret-yr-note"></div>
+  </div>
+</div>
+
+<!-- INSURANCE STATUS -->
+
+<div class="section">
+  <h3 style="margin-top:0">Health insurance coverage</h3>
+  <div class="ins-status" id="ins-status"></div>
+</div>
+
+<!-- FINANCES -->
+
+<div class="section">
+  <h3 style="margin-top:0">Finances</h3>
+  <div class="row"><label>Annual expenses (today's dollars)</label><input type="range" id="expenses" min="40000" max="200000" step="1000" value="80000"><span class="val" id="expenses-v"></span></div>
+  <div class="row"><label>Current retirement savings (pooled)</label><input type="range" id="savings" min="50000" max="2000000" step="5000" value="300000"><span class="val" id="savings-v"></span></div>
+  <div class="row"><label>Pre-conservative interest rate (%)</label><input type="range" id="rate-high" min="5" max="25" step="0.5" value="15"><span class="val" id="rate-high-v"></span></div>
+  <div class="row"><label>Post-conservative interest rate (%)</label><input type="range" id="rate-low" min="1" max="10" step="0.5" value="4.5"><span class="val" id="rate-low-v"></span></div>
+  <div class="row"><label>Inflation rate (%)</label><input type="range" id="inflation" min="1" max="6" step="0.25" value="2.5"><span class="val" id="inflation-v"></span></div>
+  <div class="row"><label>Marketplace insurance cost per person / yr</label><input type="range" id="mkt-ins" min="5000" max="40000" step="500" value="24000"><span class="val" id="mkt-ins-v"></span></div>
+  <div class="row"><label>Medicare supplement cost per person / yr</label><input type="range" id="medicare-supp" min="2000" max="12000" step="500" value="6000"><span class="val" id="medicare-supp-v"></span></div>
+  <div class="row"><label>Shift to conservative investments (Mel's age)</label><input type="range" id="conservative-age" min="55" max="68" step="1" value="60"><span class="val" id="conservative-age-v"></span></div>
+</div>
+
+<!-- SOCIAL SECURITY -->
+
+<div class="section">
+  <h3 style="margin-top:0">Social Security (monthly low estimate, collected at 62)</h3>
+  <div class="row"><label>Mel monthly SS benefit</label><input type="range" id="mel-ss" min="500" max="2500" step="50" value="1100"><span class="val" id="mel-ss-v"></span></div>
+  <div class="row"><label>Kathy monthly SS benefit</label><input type="range" id="kathy-ss" min="500" max="2500" step="50" value="1000"><span class="val" id="kathy-ss-v"></span></div>
+</div>
+
+<!-- SUMMARY CARDS -->
+
+<div class="cards">
+  <div class="card"><div class="lbl">Fund at first retirement</div><div class="num" id="fund-at-ret"></div></div>
+  <div class="card"><div class="lbl">Annual expenses year 1</div><div class="num" id="annual-need"></div></div>
+  <div class="card"><div class="lbl">Est. years funds last</div><div class="num" id="years-last"></div></div>
+  <div class="card"><div class="lbl">Fund depleted year</div><div class="num" id="deplete-yr"></div></div>
+</div>
+
+<div class="legend">
+  <span><span class="sq" style="background:#378add"></span>Retirement fund balance</span>
+  <span><span class="sq" style="background:#1d9e75"></span>Annual SS income</span>
+  <span><span class="sq" style="background:#e24b4a"></span>Annual net draw from savings</span>
+  <span><span class="sq" style="background:#ef9f27"></span>Annual health costs</span>
+</div>
+
+<div class="chart-wrap">
+  <canvas id="chart" role="img" aria-label="Retirement fund balance and cash flows over time for Kathy and Mel">
+    Chart showing fund balance, SS income, net draw, and health costs over time.
+  </canvas>
+</div>
+<div class="note" id="events-note"></div>
+
+<script>
+  // ── Constants ──────────────────────────────────────────────────────────────
+  const MEL_BORN   = 1970;
+  const KATHY_BORN = 1977;
+  const NOW        = 2026;
+
+  const KATHY_INC     = 60000;   // after-tax income
+  const MEL_INC       = 90000;
+  const KATHY_CONTRIB = 0.10;    // % to retirement
+  const MEL_CONTRIB   = 0.30;
+  const KATHY_POST_MEDICARE = 8000; // annual cost after Medicare
+
+  // ── Formatters ─────────────────────────────────────────────────────────────
+  const fmtCur = v => '$' + Math.round(v).toLocaleString();
+  const fmtPct = v => parseFloat(v).toFixed(1) + '%';
+  const fmtAge = v => Math.round(v) + '';
+  const fmtMo  = v => '$' + Math.round(v).toLocaleString() + '/mo';
+
+  const sliders = [
+    ['kathy-ret-age', fmtAge], ['mel-ret-age', fmtAge],
+    ['expenses',      fmtCur], ['savings',     fmtCur],
+    ['rate-high',     fmtPct], ['rate-low',    fmtPct], ['inflation', fmtPct],
+    ['mkt-ins',       fmtCur], ['medicare-supp', fmtCur], ['conservative-age', fmtAge],
+    ['mel-ss',        fmtMo],  ['kathy-ss',    fmtMo]
+  ];
+
+  const get = id => parseFloat(document.getElementById(id).value);
+
+  sliders.forEach(([id, fmt]) => {
+    const el  = document.getElementById(id);
+    const out = document.getElementById(id + '-v');
+    if (out) out.textContent = fmt(el.value);
+    el.addEventListener('input', () => {
+      if (out) out.textContent = fmt(el.value);
+      update();
+    });
+  });
+
+  // ── Insurance logic ────────────────────────────────────────────────────────
+  // Rules:
+  //   - If working → employer plan ($0)
+  //   - If retired but SPOUSE still working → on spouse's plan ($0)
+  //   - If both retired, under 65 → marketplace (mkt-ins slider per person)
+  //   - Age 65+ → Medicare + supplement (medicare-supp slider)
+  //   - Kathy post-Medicare capped at $8k/yr (less comprehensive)
+  function insStatus(kathyWorking, melWorking, kathyAge, melAge) {
+    const mkt  = get('mkt-ins');
+    const supp = get('medicare-supp');
+    let kC = 0, mC = 0, kS = '', mS = '';
+
+    // Mel
+    if      (melAge >= 65)    { mC = supp; mS = 'Medicare + supplement'; }
+    else if (melWorking)      { mC = 0;    mS = 'Employer plan'; }
+    else if (kathyWorking)    { mC = 0;    mS = "On Kathy's employer plan"; }
+    else                      { mC = mkt;  mS = 'Marketplace (out of pocket)'; }
+
+    // Kathy
+    if      (kathyAge >= 65)  { kC = KATHY_POST_MEDICARE; kS = 'Medicare + supplement'; }
+    else if (kathyWorking)    { kC = 0;    kS = 'Employer plan'; }
+    else if (melWorking)      { kC = 0;    kS = "On Mel's employer plan"; }
+    else                      { kC = mkt;  kS = 'Marketplace (out of pocket)'; }
+
+    return { kC, mC, kS, mS, total: kC + mC };
+  }
+
+  function boxClass(s) {
+    if (s.includes('Employer') || s.includes('On')) return 'good';
+    if (s.includes('Marketplace'))                  return 'warn-box';
+    return 'safe';
+  }
+
+  // ── Chart instance ─────────────────────────────────────────────────────────
+  let myChart = null;
+
+  // ── Main update ────────────────────────────────────────────────────────────
+  function update() {
+    const kathyRetAge = get('kathy-ret-age');
+    const melRetAge   = get('mel-ret-age');
+    const kathyRetYr  = KATHY_BORN + kathyRetAge;
+    const melRetYr    = MEL_BORN   + melRetAge;
+    const firstRetYr  = Math.min(kathyRetYr, melRetYr);
+
+    // Retirement year notes
+    document.getElementById('kathy-ret-yr-note').textContent =
+      `Retirement year: ${kathyRetYr}  (born May 1977)`;
+    document.getElementById('mel-ret-yr-note').textContent =
+      `Retirement year: ${melRetYr}  (born April 1970)`;
+
+    // Insurance status at time of first retirement
+    const kAgeFirst  = firstRetYr - KATHY_BORN;
+    const mAgeFirst  = firstRetYr - MEL_BORN;
+    const kWorkFirst = firstRetYr < kathyRetYr;
+    const mWorkFirst = firstRetYr < melRetYr;
+    const { kS, mS, kC, mC } = insStatus(kWorkFirst, mWorkFirst, kAgeFirst, mAgeFirst);
+
+    document.getElementById('ins-status').innerHTML = `
+      <div class="ins-box ${boxClass(kS)}">
+        <div class="name">Kathy at first retirement (age ${kAgeFirst})</div>
+        <div class="detail">${kS}${kC > 0 ? ' — ' + fmtCur(kC) + '/yr' : ' — $0'}</div>
+      </div>
+      <div class="ins-box ${boxClass(mS)}">
+        <div class="name">Mel at first retirement (age ${mAgeFirst})</div>
+        <div class="detail">${mS}${mC > 0 ? ' — ' + fmtCur(mC) + '/yr' : ' — $0'}</div>
+      </div>`;
+
+    // ── Simulation ───────────────────────────────────────────────────────────
+    const expenses0  = get('expenses');
+    const rateHigh   = get('rate-high')  / 100;
+    const rateLow    = get('rate-low')   / 100;
+    const inflation  = get('inflation')  / 100;
+    const consAge    = get('conservative-age');
+    const melSSmo    = get('mel-ss');
+    const kathySSmo  = get('kathy-ss');
+    let fund = get('savings');
+
+    const labels = [], balances = [], ssArr = [], drawArr = [], healthArr = [];
+    let depletedYear = null;
+
+    for (let yr = NOW; yr <= 2090; yr++) {
+      const mAge  = yr - MEL_BORN;
+      const kAge  = yr - KATHY_BORN;
+      const kWork = yr < kathyRetYr;
+      const mWork = yr < melRetYr;
+      const inflF = Math.pow(1 + inflation, yr - NOW);
+      const rate  = mAge >= consAge ? rateLow : rateHigh;
+
+      // Expenses grow with inflation
+      const annExp = expenses0 * inflF;
+
+      // Social Security (both collect at 62 if eligible)
+      let ss = 0;
+      if (mAge >= 62) ss += melSSmo   * 12 * inflF;
+      if (kAge >= 62) ss += kathySSmo * 12 * inflF;
+
+      // Health costs (inflation-adjusted)
+      const { total: hRaw } = insStatus(kWork, mWork, kAge, mAge);
+      const health = hRaw * inflF;
+
+      // Retirement contributions (while working)
+      let contrib = 0;
+      if (kWork) contrib += KATHY_INC * KATHY_CONTRIB;
+      if (mWork) contrib += MEL_INC   * MEL_CONTRIB;
+
+      // Net draw from savings
+      const needed = annExp + health;
+      const draw   = Math.max(0, needed - ss - contrib);
+
+      // Fund grows at rate, receives contributions, pays draw
+      fund = fund * (1 + rate) + contrib - draw;
+
+      labels.push(yr);
+      balances.push(Math.max(0, Math.round(fund)));
+      ssArr.push(Math.round(ss));
+      drawArr.push(Math.round(draw));
+      healthArr.push(Math.round(health));
+
+      if (fund <= 0 && !depletedYear) depletedYear = yr;
+      if (yr > firstRetYr + 2 && fund <= 0) break;
+    }
+
+    // ── Summary cards ────────────────────────────────────────────────────────
+    const rIdx     = labels.indexOf(firstRetYr);
+    const fundAtRet = rIdx >= 0 ? balances[rIdx] : balances[balances.length - 1];
+    const inflF1    = Math.pow(1 + inflation, firstRetYr - NOW);
+
+    document.getElementById('fund-at-ret').textContent  = fmtCur(fundAtRet);
+    document.getElementById('annual-need').textContent  = fmtCur(expenses0 * inflF1);
+    document.getElementById('years-last').textContent   =
+      (depletedYear ? depletedYear - firstRetYr : '>' + (labels[labels.length-1] - firstRetYr)) + ' yrs';
+
+    const deplEl = document.getElementById('deplete-yr');
+    if (depletedYear) { deplEl.textContent = depletedYear; deplEl.classList.add('warn'); }
+    else              { deplEl.textContent = 'Not depleted'; deplEl.classList.remove('warn'); }
+
+    // ── Events note ──────────────────────────────────────────────────────────
+    document.getElementById('events-note').innerHTML =
+      `Key events — Kathy retires: ${kathyRetYr} (age ${kathyRetAge}) | ` +
+      `Mel retires: ${melRetYr} (age ${melRetAge}) | ` +
+      `Conservative investments: ${MEL_BORN + consAge} | ` +
+      `Mel SS: ${MEL_BORN + 62} | Mel Medicare: ${MEL_BORN + 65} | ` +
+      `Kathy SS: ${KATHY_BORN + 62} | Kathy Medicare: ${KATHY_BORN + 65}`;
+
+    // ── Chart ────────────────────────────────────────────────────────────────
+    const ctx = document.getElementById('chart').getContext('2d');
+    if (myChart) myChart.destroy();
+
+    myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Retirement fund balance',
+            data: balances,
+            backgroundColor: '#378add',
+            yAxisID: 'y',
+            order: 4
+          },
+          {
+            label: 'Annual SS income',
+            data: ssArr,
+            type: 'line',
+            borderColor: '#1d9e75',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            pointRadius: 0,
+            yAxisID: 'y2',
+            order: 1
+          },
+          {
+            label: 'Annual net draw from savings',
+            data: drawArr,
+            type: 'line',
+            borderColor: '#e24b4a',
+            backgroundColor: 'transparent',
+            borderDash: [4, 3],
+            borderWidth: 2,
+            pointRadius: 0,
+            yAxisID: 'y2',
+            order: 2
+          },
+          {
+            label: 'Annual health costs',
+            data: healthArr,
+            type: 'line',
+            borderColor: '#ef9f27',
+            backgroundColor: 'transparent',
+            borderDash: [2, 2],
+            borderWidth: 2,
+            pointRadius: 0,
+            yAxisID: 'y2',
+            order: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: { label: c => c.dataset.label + ': ' + fmtCur(c.raw) }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { autoSkip: true, maxTicksLimit: 12, color: '#888' },
+            grid:  { display: false }
+          },
+          y: {
+            position: 'left',
+            title: { display: true, text: 'Fund balance', color: '#888', font: { size: 11 } },
+            ticks: {
+              color: '#888',
+              callback: v => '$' + (v >= 1e6 ? (v/1e6).toFixed(1)+'M' : (v/1e3).toFixed(0)+'K')
+            }
+          },
+          y2: {
+            position: 'right',
+            title: { display: true, text: 'Annual $ flows', color: '#888', font: { size: 11 } },
+            ticks: { color: '#888', callback: v => '$' + (v/1e3).toFixed(0) + 'K' },
+            grid:  { drawOnChartArea: false }
+          }
+        }
+      }
+    });
+  }
+
+  // Initial render
+  update();
+</script>
+
+</body>
+</html>

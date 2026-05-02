@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10-Pound Plan — Weekly Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f11;
+    --surface: #16181c;
+    --surface2: #1e2127;
+    --border: #2a2d35;
+    --accent: #e8ff47;
+    --accent2: #47c8ff;
+    --accent3: #ff6b47;
+    --text: #f0f0f0;
+    --muted: #6b7280;
+    --green: #4ade80;
+    --done-bg: #1a2e1a;
+  }
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+background: var(–bg);
+color: var(–text);
+font-family: ‘DM Sans’, sans-serif;
+min-height: 100vh;
+padding: 0 0 60px 0;
+}
+
+/* HEADER */
+.header {
+background: var(–surface);
+border-bottom: 1px solid var(–border);
+padding: 28px 24px 20px;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.header-top {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+gap: 12px;
+flex-wrap: wrap;
+}
+.title-block h1 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 2.6rem;
+color: var(–accent);
+letter-spacing: 2px;
+line-height: 1;
+}
+.title-block p {
+color: var(–muted);
+font-size: 0.8rem;
+margin-top: 4px;
+font-family: ‘DM Mono’, monospace;
+letter-spacing: 0.5px;
+}
+
+.stats-row {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+margin-top: 16px;
+}
+.stat-chip {
+background: var(–surface2);
+border: 1px solid var(–border);
+border-radius: 6px;
+padding: 6px 12px;
+font-size: 0.72rem;
+font-family: ‘DM Mono’, monospace;
+color: var(–muted);
+}
+.stat-chip span { color: var(–accent); font-weight: 600; }
+
+/* WEEK NAV */
+.week-nav {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 14px 24px;
+border-bottom: 1px solid var(–border);
+background: var(–bg);
+overflow-x: auto;
+}
+.week-btn {
+background: var(–surface2);
+border: 1px solid var(–border);
+color: var(–muted);
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 0.75rem;
+font-family: ‘DM Mono’, monospace;
+cursor: pointer;
+white-space: nowrap;
+transition: all 0.15s;
+}
+.week-btn.active {
+background: var(–accent);
+color: #000;
+border-color: var(–accent);
+font-weight: 600;
+}
+.week-btn:hover:not(.active) {
+border-color: var(–accent);
+color: var(–text);
+}
+.progress-bar-wrap {
+flex: 1;
+min-width: 120px;
+background: var(–surface2);
+border-radius: 4px;
+height: 6px;
+overflow: hidden;
+}
+.progress-bar-fill {
+height: 100%;
+background: linear-gradient(90deg, var(–accent), var(–accent2));
+border-radius: 4px;
+transition: width 0.4s ease;
+}
+.progress-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.7rem;
+color: var(–muted);
+white-space: nowrap;
+}
+
+/* MAIN CONTENT */
+.content { padding: 20px 24px; max-width: 860px; margin: 0 auto; }
+
+/* INFO BANNER */
+.info-banner {
+background: linear-gradient(135deg, #1a1f0a 0%, #0f1a1f 100%);
+border: 1px solid #2d3a10;
+border-radius: 10px;
+padding: 16px 18px;
+margin-bottom: 20px;
+font-size: 0.8rem;
+color: #a8b870;
+line-height: 1.6;
+}
+.info-banner strong { color: var(–accent); }
+
+/* DAY CARD */
+.day-card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 12px;
+margin-bottom: 14px;
+overflow: hidden;
+transition: border-color 0.2s;
+}
+.day-card.all-done {
+border-color: var(–green);
+background: linear-gradient(135deg, var(–surface) 80%, #0d1f0d 100%);
+}
+
+.day-header {
+display: flex;
+align-items: center;
+padding: 14px 18px;
+cursor: pointer;
+user-select: none;
+gap: 14px;
+}
+.day-label {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.4rem;
+letter-spacing: 1.5px;
+min-width: 110px;
+color: var(–accent2);
+}
+.day-label.rest { color: var(–muted); }
+.day-focus {
+font-size: 0.78rem;
+color: var(–muted);
+font-family: ‘DM Mono’, monospace;
+flex: 1;
+}
+.day-progress-ring {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.7rem;
+color: var(–muted);
+white-space: nowrap;
+}
+.day-progress-ring.done { color: var(–green); font-weight: 600; }
+.chevron {
+color: var(–muted);
+font-size: 0.8rem;
+transition: transform 0.2s;
+}
+.day-card.open .chevron { transform: rotate(90deg); }
+
+/* TASK LIST */
+.task-list {
+display: none;
+padding: 0 18px 16px;
+border-top: 1px solid var(–border);
+}
+.day-card.open .task-list { display: block; }
+
+.section-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.65rem;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(–muted);
+margin: 14px 0 8px;
+}
+
+.task-item {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+padding: 9px 0;
+border-bottom: 1px solid #1c1f26;
+cursor: pointer;
+transition: background 0.1s;
+border-radius: 4px;
+}
+.task-item:last-child { border-bottom: none; }
+.task-item:hover { background: var(–surface2); padding-left: 6px; padding-right: 6px; margin: 0 -6px; }
+
+.task-check {
+width: 20px;
+height: 20px;
+border-radius: 5px;
+border: 2px solid var(–border);
+flex-shrink: 0;
+margin-top: 1px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.15s;
+font-size: 0.75rem;
+}
+.task-item.checked .task-check {
+background: var(–green);
+border-color: var(–green);
+color: #000;
+}
+.task-text {
+flex: 1;
+}
+.task-text strong {
+font-size: 0.85rem;
+font-weight: 600;
+display: block;
+line-height: 1.3;
+}
+.task-text em {
+font-size: 0.73rem;
+color: var(–muted);
+font-style: normal;
+display: block;
+margin-top: 2px;
+line-height: 1.4;
+}
+.task-item.checked .task-text strong {
+text-decoration: line-through;
+color: var(–muted);
+}
+.task-duration {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.65rem;
+color: var(–accent3);
+background: #1f1510;
+border: 1px solid #3a2010;
+border-radius: 4px;
+padding: 2px 7px;
+white-space: nowrap;
+margin-top: 2px;
+flex-shrink: 0;
+}
+
+/* REST DAY */
+.rest-block {
+padding: 16px 0 8px;
+color: var(–muted);
+font-size: 0.82rem;
+line-height: 1.6;
+}
+.rest-block strong { color: var(–text); }
+
+/* NOTES */
+.notes-section {
+margin-top: 24px;
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 12px;
+padding: 18px;
+}
+.notes-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.2rem;
+color: var(–accent);
+letter-spacing: 1.5px;
+margin-bottom: 12px;
+}
+.notes-list { list-style: none; }
+.notes-list li {
+font-size: 0.8rem;
+color: #9ca3af;
+padding: 5px 0;
+border-bottom: 1px solid var(–border);
+padding-left: 14px;
+position: relative;
+line-height: 1.5;
+}
+.notes-list li:before {
+content: ‘→’;
+position: absolute;
+left: 0;
+color: var(–accent);
+font-size: 0.7rem;
+}
+.notes-list li:last-child { border: none; }
+.notes-list li strong { color: var(–text); }
+
+/* WEEKLY WEIGHT LOG */
+.weight-log {
+margin-top: 14px;
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 12px;
+padding: 18px;
+}
+.weight-log-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.2rem;
+color: var(–accent2);
+letter-spacing: 1.5px;
+margin-bottom: 12px;
+}
+.weight-row {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 8px;
+}
+.weight-row label {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.72rem;
+color: var(–muted);
+min-width: 60px;
+}
+.weight-input {
+background: var(–surface2);
+border: 1px solid var(–border);
+border-radius: 6px;
+color: var(–text);
+font-family: ‘DM Mono’, monospace;
+font-size: 0.82rem;
+padding: 5px 10px;
+width: 80px;
+outline: none;
+transition: border-color 0.15s;
+}
+.weight-input:focus { border-color: var(–accent2); }
+.weight-delta {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.72rem;
+color: var(–green);
+}
+.weight-delta.gain { color: var(–accent3); }
+
+/* RESET */
+.reset-btn {
+margin-top: 20px;
+background: transparent;
+border: 1px solid var(–border);
+color: var(–muted);
+padding: 8px 18px;
+border-radius: 6px;
+font-size: 0.72rem;
+font-family: ‘DM Mono’, monospace;
+cursor: pointer;
+transition: all 0.15s;
+}
+.reset-btn:hover { border-color: var(–accent3); color: var(–accent3); }
+
+@media (max-width: 520px) {
+.title-block h1 { font-size: 2rem; }
+.content { padding: 14px 14px; }
+.day-label { font-size: 1.15rem; min-width: 90px; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="title-block">
+      <h1>10-POUND PLAN</h1>
+      <p>192 lbs · 5'8" · Age 55 · Goal: 182 lbs</p>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-chip">Current: <span>192 lbs</span></div>
+    <div class="stat-chip">Target: <span>182 lbs</span></div>
+    <div class="stat-chip">BMI Now: <span>29.2</span></div>
+    <div class="stat-chip">Timeline: <span>~10–14 wks</span></div>
+    <div class="stat-chip">Deficit/day: <span>~500 cal</span></div>
+  </div>
+</div>
+
+<div class="week-nav">
+  <button class="week-btn active" onclick="switchWeek(1)">WK 1</button>
+  <button class="week-btn" onclick="switchWeek(2)">WK 2</button>
+  <button class="week-btn" onclick="switchWeek(3)">WK 3</button>
+  <button class="week-btn" onclick="switchWeek(4)">WK 4</button>
+  <button class="week-btn" onclick="switchWeek(5)">WK 5</button>
+  <button class="week-btn" onclick="switchWeek(6)">WK 6</button>
+  <button class="week-btn" onclick="switchWeek(7)">WK 7</button>
+  <button class="week-btn" onclick="switchWeek(8)">WK 8</button>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="weekProgressBar" style="width:0%"></div>
+  </div>
+  <div class="progress-label" id="weekProgressLabel">0 / 0 done</div>
+</div>
+
+<div class="content" id="mainContent"></div>
+
+<script>
+// ─── PLAN DATA ────────────────────────────────────────────────────────────────
+const PLAN = {
+  focus: [
+    "Build the habit. Light loads. No soreness spirals.",
+    "Add intensity. Increase walk/run distances.",
+    "Introduce intervals. Ramp calorie burn.",
+    "Full groove. Consistent routine locked in.",
+    "Increase weights. Add pool if possible.",
+    "Challenge week. Push personal bests.",
+    "Maintain intensity. Refine nutrition timing.",
+    "Test & assess. Measure progress, adjust."
+  ],
+  days: [
+    // MONDAY
+    {
+      day: "MONDAY",
+      type: "active",
+      focus: "Cardio + Core",
+      sections: [
+        {
+          label: "MORNING (before 10am meal)",
+          tasks: [
+            { text: "Dog walk", detail: "25–30 min brisk pace. No phone — just walk. This is your warm-up and mood reset.", dur: "30 min" },
+            { text: "Treadmill run/walk intervals", detail: "Weeks 1–2: walk 3 min / jog 2 min × 5 sets. Weeks 3+: run 3 mi steady at comfortable pace.", dur: "25–30 min" },
+          ]
+        },
+        {
+          label: "POST-MEAL (after 12:30pm, before nap)",
+          tasks: [
+            { text: "Core circuit (3 rounds)", detail: "20× dead bugs · 15× bird dogs · 10× slow mountain climbers · 30-sec plank. Rest 60 sec between rounds.", dur: "15 min" },
+          ]
+        },
+        {
+          label: "AFTERNOON (3:30–4:30pm, after coffee)",
+          tasks: [
+            { text: "Hamstring & trap mobility", detail: "Seated forward fold 3×60 sec · Doorway chest opener 3×30 sec · Neck rolls · Shoulder cross-body stretch 3×30 sec each side. These directly target your yoga blockers.", dur: "12 min" },
+          ]
+        }
+      ]
+    },
+    // TUESDAY
+    {
+      day: "TUESDAY",
+      type: "active",
+      focus: "Strength + Bike",
+      sections: [
+        {
+          label: "MORNING",
+          tasks: [
+            { text: "Dog walk", detail: "20 min, slightly faster than Monday's.", dur: "20 min" },
+            { text: "Shed strength circuit (3 rounds)", detail: "10× pull-ups or assisted (jump + slow lower) · 15× dumbbell rows · 15× dumbbell goblet squat · 10× dumbbell Romanian deadlift (KEY for tight hamstrings) · 12× dumbbell shoulder press. Rest 90 sec between rounds.", dur: "30 min" },
+          ]
+        },
+        {
+          label: "AFTERNOON",
+          tasks: [
+            { text: "Bike ride", detail: "3–4 miles at a pace that lets you talk but not sing. Explore a new route. Bring your daughter if she wants to come.", dur: "20–30 min" },
+            { text: "Post-ride stretch", detail: "Pigeon pose 2×60 sec each side · Quad stretch · Calf stretch on a step.", dur: "8 min" },
+          ]
+        }
+      ]
+    },
+    // WEDNESDAY
+    {
+      day: "WEDNESDAY",
+      type: "active",
+      focus: "Active Recovery + Yoga Prep",
+      sections: [
+        {
+          label: "MORNING",
+          tasks: [
+            { text: "Dog walk + daughter activity", detail: "30–40 min walk with daughter. Play a game — she picks the route. Movement counts.", dur: "35 min" },
+          ]
+        },
+        {
+          label: "MID-MORNING (before smoothie)",
+          tasks: [
+            { text: "Rowing machine", detail: "Weeks 1–2: 10 min easy (rate 18–20 spm). Weeks 3+: 15 min with 1 min hard / 2 min easy intervals. Great for traps — focus on driving with legs first, not pulling with arms.", dur: "10–15 min" },
+          ]
+        },
+        {
+          label: "AFTERNOON",
+          tasks: [
+            { text: "Yoga-focused mobility (backbend & shoulder prep)", detail: "Cat-cow 2×10 · Sphinx pose 3×45 sec · Supported fish on a rolled towel 2×60 sec · Puppy pose (melts traps) 3×45 sec · Wall shoulder slides 2×15. These directly unlock your back bends and shoulderstands.", dur: "20 min" },
+          ]
+        }
+      ]
+    },
+    // THURSDAY
+    {
+      day: "THURSDAY",
+      type: "active",
+      focus: "Run + Weights",
+      sections: [
+        {
+          label: "MORNING",
+          tasks: [
+            { text: "Dog walk warm-up", detail: "15 min easy.", dur: "15 min" },
+            { text: "Treadmill run", detail: "Weeks 1–2: 2 miles easy. Weeks 3–5: 2.5 miles. Weeks 6+: 3 miles with last 0.5 mi at push pace.", dur: "25–35 min" },
+          ]
+        },
+        {
+          label: "SHED (same session or afternoon)",
+          tasks: [
+            { text: "Upper body & pull focus (3 rounds)", detail: "Max pull-ups (or negatives) · 15× dumbbell bicep curls · 12× dumbbell tricep extension · 20× band pull-aparts or dumbbell rear delt fly · 15× upright rows (light — loosens traps over time).", dur: "25 min" },
+            { text: "Foam roll or self-massage", detail: "Spend 5 min on upper traps with a tennis ball against the wall. This is your secret weapon for yoga.", dur: "5 min" },
+          ]
+        }
+      ]
+    },
+    // FRIDAY
+    {
+      day: "FRIDAY",
+      type: "active",
+      focus: "Full Body + Optional Pool",
+      sections: [
+        {
+          label: "MORNING",
+          tasks: [
+            { text: "Dog walk", detail: "30 min. Keep it relaxed — Friday is a good active recovery morning.", dur: "30 min" },
+            { text: "Full body dumbbell circuit (2–3 rounds)", detail: "15× squat to press · 12× single-leg RDL each side · 15× bent-over row · 12× lateral lunges · 10× push-ups (or incline) · 20× hollow body hold.", dur: "25 min" },
+          ]
+        },
+        {
+          label: "OPTIONAL — Pool (if you can make the 15 min trip)",
+          tasks: [
+            { text: "Pool swim (optional but high value)", detail: "30–40 min easy swim. Freestyle 2 laps / backstroke 1 lap alternating. Zero impact, burns ~300 cal, and shoulder rotation from backstroke helps your traps enormously. Worth the drive once a week.", dur: "35–45 min" },
+          ]
+        },
+        {
+          label: "EVENING",
+          tasks: [
+            { text: "Hamstring focus stretch", detail: "Lying hamstring stretch with strap or towel 3×60 sec each leg. Do this while watching TV. Consistency here will transform your yoga in 6–8 weeks.", dur: "10 min" },
+          ]
+        }
+      ]
+    },
+    // SATURDAY
+    {
+      day: "SATURDAY",
+      type: "active",
+      focus: "Family Fun + Light Movement",
+      sections: [
+        {
+          label: "MORNING (keep it fun)",
+          tasks: [
+            { text: "Active time with daughter", detail: "Bike ride together, playground, park walk, scooter — whatever she picks. Aim for 45–60 min of movement. This is not optional exercise — this is the most sustainable kind.", dur: "45–60 min" },
+          ]
+        },
+        {
+          label: "AFTERNOON",
+          tasks: [
+            { text: "Rowing machine — easy", detail: "15 min easy row. Light day. Just move.", dur: "15 min" },
+            { text: "Full stretch routine", detail: "10 min full-body: hips, hamstrings, chest, traps. This primes you for Sunday's yoga.", dur: "10 min" },
+          ]
+        }
+      ]
+    },
+    // SUNDAY
+    {
+      day: "SUNDAY",
+      type: "yoga",
+      focus: "Ashtanga + Bike (Your Existing Routine)",
+      sections: [
+        {
+          label: "YOUR SUNDAY ROUTINE — KEEP IT",
+          tasks: [
+            { text: "Bike ride", detail: "2 miles. Same as always. Treat as warm-up for yoga.", dur: "15 min" },
+            { text: "Ashtanga yoga — 1 hour", detail: "Your existing practice. By week 4, notice your hamstrings allowing deeper forward folds. By week 6–8, traps should release enough for better back bends. The weekday mobility work is specifically designed to unlock this.", dur: "60 min" },
+          ]
+        },
+        {
+          label: "POST-YOGA (10 min bonus)",
+          tasks: [
+            { text: "Shoulderstand prep", detail: "Supported shoulderstand against wall for 2 min · Legs-up-the-wall 3 min · Savasana 5 min. Over time, this builds toward unassisted shoulderstands.", dur: "10 min" },
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// ─── STATE (pure in-memory, no localStorage) ───────────────────────────────
+let currentWeek = 1;
+let checked = {};
+let weights = {};
+let openDays = new Set([0]);
+
+function key(wk, d, s, t) { return `${wk}-${d}-${s}-${t}`; }
+
+function loadState() { /* no-op: in-memory only */ }
+function saveState() { /* no-op: in-memory only */ }
+
+// ─── RENDER ────────────────────────────────────────────────────────────────
+function totalTasksForWeek(wk) {
+  let total = 0, done = 0;
+  PLAN.days.forEach((day, di) => {
+    (day.sections || []).forEach((sec, si) => {
+      (sec.tasks || []).forEach((_, ti) => {
+        total++;
+        if (checked[key(wk, di, si, ti)]) done++;
+      });
+    });
+  });
+  return { total, done };
+}
+
+function render() {
+  const wk = currentWeek;
+  const { total, done } = totalTasksForWeek(wk);
+  const pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById('weekProgressBar').style.width = pct + '%';
+  document.getElementById('weekProgressLabel').textContent = `${done} / ${total} done`;
+
+  // week buttons
+  document.querySelectorAll('.week-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i + 1 === wk);
+  });
+
+  let html = '';
+
+  // info banner
+  const focusText = PLAN.focus[Math.min(wk - 1, PLAN.focus.length - 1)];
+  html += `<div class="info-banner"><strong>WEEK ${wk} FOCUS:</strong> ${focusText}<br>
+  <strong>Calorie strategy:</strong> Don't change what you eat dramatically — just <strong>don't eat after 8pm</strong> (hard rule), add a handful of protein to your 3:30pm snack, and ensure your smoothie has 25–30g protein. Small meals consistently is your natural advantage — use it.
+  </div>`;
+
+  // day cards
+  PLAN.days.forEach((day, di) => {
+    const isOpen = openDays.has(di);
+
+    // count tasks for this day
+    let dayTotal = 0, dayDone = 0;
+    (day.sections || []).forEach((sec, si) => {
+      (sec.tasks || []).forEach((_, ti) => {
+        dayTotal++;
+        if (checked[key(wk, di, si, ti)]) dayDone++;
+      });
+    });
+    const allDone = dayTotal > 0 && dayDone === dayTotal;
+
+    html += `<div class="day-card ${isOpen ? 'open' : ''} ${allDone ? 'all-done' : ''}" id="daycard-${di}">`;
+    html += `<div class="day-header" onclick="toggleDay(${di})">
+      <div class="day-label ${day.type === 'rest' ? 'rest' : ''}">${day.day}</div>
+      <div class="day-focus">${day.focus}</div>
+      <div class="day-progress-ring ${allDone ? 'done' : ''}">${allDone ? '✓ DONE' : `${dayDone}/${dayTotal}`}</div>
+      <div class="chevron">▶</div>
+    </div>`;
+
+    html += `<div class="task-list">`;
+    if (day.type === 'rest') {
+      html += `<div class="rest-block">${day.restNote || ''}</div>`;
+    } else {
+      (day.sections || []).forEach((sec, si) => {
+        html += `<div class="section-label">${sec.label}</div>`;
+        (sec.tasks || []).forEach((task, ti) => {
+          const k = key(wk, di, si, ti);
+          const isDone = !!checked[k];
+          html += `<div class="task-item ${isDone ? 'checked' : ''}" onclick="toggleTask('${k}')">
+            <div class="task-check">${isDone ? '✓' : ''}</div>
+            <div class="task-text">
+              <strong>${task.text}</strong>
+              <em>${task.detail}</em>
+            </div>
+            ${task.dur ? `<div class="task-duration">${task.dur}</div>` : ''}
+          </div>`;
+        });
+      });
+    }
+    html += `</div></div>`;
+  });
+
+  // Weight log
+  html += `<div class="weight-log">
+    <div class="weight-log-title">WEEKLY WEIGHT LOG</div>`;
+  for (let w = 1; w <= 8; w++) {
+    const val = weights[w] || '';
+    const prev = weights[w - 1] || '';
+    let delta = '';
+    if (val && prev) {
+      const diff = parseFloat(val) - parseFloat(prev);
+      const sign = diff > 0 ? '+' : '';
+      delta = `<span class="weight-delta ${diff > 0 ? 'gain' : ''}">${sign}${diff.toFixed(1)} lbs</span>`;
+    }
+    html += `<div class="weight-row">
+      <label>Week ${w}</label>
+      <input class="weight-input" type="number" step="0.1" placeholder="lbs"
+        value="${val}" onchange="saveWeight(${w}, this.value)">
+      ${delta}
+    </div>`;
+  }
+  html += `</div>`;
+
+  // Notes
+  html += `<div class="notes-section">
+    <div class="notes-title">SCIENCE & STRATEGY NOTES</div>
+    <ul class="notes-list">
+      <li><strong>Why this works at 55:</strong> Metabolism slows ~1–2% per decade, but muscle mass is the #1 lever. The strength work preserves and builds muscle, keeping your metabolism higher even at rest.</li>
+      <li><strong>Your natural IF advantage:</strong> Eating 10am–8pm is a natural 14-hour fast. Don't break it with late-night eating — this alone accounts for ~1 lb/month of loss.</li>
+      <li><strong>Hamstrings in 6–8 weeks:</strong> Daily 60-sec holds at the end range are clinically shown to increase hamstring length. The Romanian deadlifts on Tuesday/Thursday also lengthen under load — the fastest method.</li>
+      <li><strong>Trap release for yoga:</strong> Tight traps are almost always postural + stress. The puppy pose, wall slides, and tennis ball work 4–5x/week will produce visible change in 4 weeks. Upright rows counterintuitively help by strengthening the mid-trap (not just tightening upper).</li>
+      <li><strong>Don't skip the dog walk:</strong> Low-intensity steady-state walking burns fat directly (fat is the fuel source at ~50–60% max HR). A 30-min walk burns ~150–180 cal and compounds massively over weeks.</li>
+      <li><strong>The 3:30pm snack matters:</strong> Add Greek yogurt, a hard-boiled egg, or cottage cheese. Protein here prevents muscle breakdown overnight and reduces the urge to eat past 8pm.</li>
+      <li><strong>Pool = wildcard:</strong> If you can do it once a week, swimming for 35 min burns ~350–400 cal, is zero impact on your joints, and backstroke is the single best trap/shoulder opener available.</li>
+      <li><strong>Expected rate:</strong> 0.5–1.5 lbs/week is realistic and healthy at your profile. Weeks 1–2 may show 2–3 lbs (water weight). Weeks 3–10 will be steadier. Do not weigh daily — weigh Sunday morning only.</li>
+    </ul>
+  </div>`;
+
+  html += `<button class="reset-btn" onclick="resetWeek()">↺ Reset Week ${wk} checkboxes</button>`;
+
+  document.getElementById('mainContent').innerHTML = html;
+}
+
+function toggleDay(di) {
+  if (openDays.has(di)) openDays.delete(di);
+  else openDays.add(di);
+  render();
+}
+
+function toggleTask(k) {
+  checked[k] = !checked[k];
+  render();
+}
+
+function saveWeight(wk, val) {
+  weights[wk] = val;
+  render();
+}
+
+function switchWeek(wk) {
+  currentWeek = wk;
+  openDays = new Set([0]);
+  render();
+}
+
+function resetWeek() {
+  const wk = currentWeek;
+  PLAN.days.forEach((day, di) => {
+    (day.sections || []).forEach((sec, si) => {
+      (sec.tasks || []).forEach((_, ti) => {
+        delete checked[key(wk, di, si, ti)];
+      });
+    });
+  });
+  render();
+}
+
+// ─── INIT ──────────────────────────────────────────────────────────────────
+loadState();
+render();
+</script>
+
+</body>
+</html>
