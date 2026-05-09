@@ -54,6 +54,30 @@ The writings of religion create an analogy between our relationship with others 
 
 ---
 
+## Angels — Matter and Hierarchy (from Aquinas, Prima Pars Q. 50)
+
+[Summa Theologiae: The substance of the angels absolutely considered](https://www.newadvent.org/summa/1050.htm)
+
+Angels are made of matter but not pure spirit. Mineral being is the reverse of human.
+
+The hierarchy of being, ascending:
+- Minerals — most deeply rooted; the basis upon which life picks up; developed as if with the intent of enabling life
+- Plants — instances of regenerating mineralogy; rooted in earth
+- Animals — detached from earth plants; mobile, sensing
+- Humans — detached from earth and its psyche; bridged between matter and spirit
+
+Plants and animals are bridges between human and cosmos.
+
+The states of consciousness in descending order:
+- Wake — division, individuation
+- Dream — unitary experience
+- Somnambulistic — act out your program
+- Trance / hypnosis — follow orders; deepest dissolution of individual will
+
+Matter is fluid; form is formless at depth.
+
+---
+
 ## Stray notes (from Sail.md)
 
 - Crimp cable / turnbuckle
