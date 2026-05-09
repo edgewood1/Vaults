@@ -2,7 +2,7 @@
 
 ## Bluegrass
 
-Columbus Stockade Blues, East Virginia Blues, Freeborn Man, Dark Hollow, Glendale Train, I Ain't Broke But I'm Badly Bent, I Am a Pilgrim, I Ain't Gonna Work Tomorrow, John Henry, Jordan, Katy Daly, Little Bessie, Little Maggie, New River Train, Nine Pound Hammer, Roll in My Sweet Baby's Arms, Roll On Buddy Roll On, Roving Gambler, Sitting on Top of the World, Way Downtown, Wildwood Flower, Little Sadie
+Columbus Stockade Blues, East Virginia Blues, Freeborn Man, Dark Hollow, Glendale Train, I Ain't Broke But I'm Badly Bent, I Am a Pilgrim, I Ain't Gonna Work Tomorrow, John Henry, Jordan, Katy Daly, Little Bessie, Little Maggie, New River Train, Nine Pound Hammer, Roll in My Sweet Baby's Arms, Roll On Buddy Roll On, Roving Gambler, Sitting on Top of the World, Way Downtown, Wildwood Flower, Little Sadie, Sweet Sunny South, Talk About Suffering, Tennessee Stud, Troubles Up and Down, Whitehouse Blues, Old 97 (Were You There)
 
 ## Grateful Dead
 
@@ -48,6 +48,13 @@ Sitting on Top of the World, Country Blues, Southbound, Blue Railroad Train, Wea
 
 **I. Bluegrass / Flatpick Tradition (complex or melodic):**
 - Tony Rice — *(list continues in source)*
+
+## Sturgill Simpson
+
+- "A Little Light" — *Metamodern Sounds in Country Music* (2014) · Key of E
+  - Chords: E / A / B7 — [Verse] E A / E B7 / [Chorus] E A / E B7
+
+---
 
 ## Mel's practice list
 

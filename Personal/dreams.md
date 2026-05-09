@@ -10,3 +10,10 @@ Found one room with four year olds that kept repeating Jesus name
 I stayed there for a while
 Then was in a body again with serious nose pain
 
+	# Dream
+
+
+Train crash kp paraplegic type fina broken angel
+
+
+Fighting japs and me deployed on suicide mission have to call home. 

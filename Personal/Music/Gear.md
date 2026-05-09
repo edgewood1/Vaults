@@ -15,9 +15,17 @@
 ## Three stages of amplification
 
 1. **Gain/Drive** — controls input sensitivity
-   - Low: clean sound (smooth flow)
-   - High: signal breaks up, adds grit
-2. *(stages 2–3 in source truncated)*
+   - Low: wide pipe → clean, smooth sound
+   - High: narrow pipe → signal becomes turbulent, distorted
+   - Gain is texture, not loudness
+
+2. **Tone stack (EQ)**
+   - Treble, mid, bass
+   - Boosted lo mids / hi bass+treble → modern / metal sound
+   - Boosted mids → vintage sound
+
+3. **Power amp (muscle)**
+   - Volume: controls output loudness
 
 ## Drive / pedals
 
@@ -35,6 +43,18 @@
 ## DAW options
 
 - Logic Pro, Pro Tools, GarageBand, Ableton Lite
+
+## Two common pedal+amp setups
+
+**Setup A — Push the amp into breakup:**
+- Amp gain ~5–6 (just barely breaking up)
+- Overdrive pedal: Drive LOW, Volume HIGH
+- Result: pedal sends a voltage spike into the amp — natural warmth, compression, sustain
+
+**Setup B — Clean amp, dirty pedal:**
+- Amp gain ~2–3 (perfectly clean, infinite headroom)
+- Pedal drive ~8–9
+- Result: amp acts as a clear PA; you hear 100% of the pedal's tone
 
 ## Mic / CPU setup
 
